@@ -83,7 +83,7 @@ def forward_roberta(model, dataset_input_ids, dataset_attention_mask, dataset_la
             for b in range(batch_size):
                 random_numbers = random.sample(range(sum(attention_mask[b,:])), N) # 각 시퀀스에서 N개 뽑기
                 for i in random_numbers:
-                    sample_inputs[4*l+1].append(hidden_states[b,i,:])
+                    sample_inputs[4*l+1].append(attn_output[b,i,:])
                     # sample_inputs의 인덱스 4*l+1: layer-l의 W_O의 input token representation
 
             # W_O의 input token representation에 W_O를 작용, attention 이전의 입력으로 residual connection, layer normalization 적용
@@ -236,7 +236,7 @@ def forward_roberta_for_graph(model, dataset_input_ids, dataset_attention_mask, 
             for b in range(batch_size):
                 random_numbers = random.sample(range(sum(attention_mask[b,:])), N) # 각 시퀀스에서 N개 뽑기
                 for i in random_numbers:
-                    torch.save(hidden_states[b,i,:].clone(), os.path.join(dir, 'inputs', f'{4*l+1}', f'{sample_counter_write[4*l+1]}.pt'))
+                    torch.save(attn_output[b,i,:].clone(), os.path.join(dir, 'inputs', f'{4*l+1}', f'{sample_counter_write[4*l+1]}.pt'))
                     sample_counter_write[4*l+1] += 1
                     # sample_inputs의 인덱스 4*l+1: layer-l의 W_O의 input token representation
 
@@ -249,7 +249,7 @@ def forward_roberta_for_graph(model, dataset_input_ids, dataset_attention_mask, 
             for b in range(batch_size):
                 random_numbers = random.sample(range(sum(attention_mask[b,:])), N) # 각 시퀀스에서 N개 뽑기
                 for i in random_numbers:
-                    torch.save(hidden_states[b,i,:].clone(), os.path.join(dir, 'inputs', f'{4*l+2}', f'{sample_counter_write[4*l+2]}.pt'))
+                    torch.save(attention_output[b,i,:].clone(), os.path.join(dir, 'inputs', f'{4*l+2}', f'{sample_counter_write[4*l+2]}.pt'))
                     sample_counter_write[4*l+2] += 1
                     # sample_inputs의 인덱스 4*l+2: layer-l의 W_fc1의 input token representation
 
