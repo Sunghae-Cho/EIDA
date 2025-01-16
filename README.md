@@ -1,5 +1,9 @@
 # EIDA
 
+프로젝트에 관한 자세한 설명은 https://github.com/Sunghae-Cho/EIDA/blob/main/readme2.pdf 에 첨부하였습니다.
+
+
+
 프로젝트 구조
 
 E2E 폴더의 txt 파일들 : E2E NLG Challenge 데이터셋을 담고 있습니다.
@@ -18,4 +22,4 @@ RoBERTa-SST2-train.ipynb : 어댑터 EIDA를 적용하여 RoBERTa-base 모델을
 
 GPT2-E2ENLG-graph.ipynb : E2E NLG Challenge의 train set 데이터를 GPT2 모델에 통과시키면서 토큰 표본을 수집하여 차원 압축을 수행하고, 토큰의 원래 분포가 압축된 차원에 정사영되었을 때 성분을 얼마나 유지하는지 측정하는 코드입니다.
 
-GPT2-E2ENLG-train.ipynb : 어댑터 EIDA를 적용하여 GPT2 모델을 E2E NLG Challenge 데이터셋으로 학습하고 https://github.com/tuetschek/e2e-dataset에서 제공하는 벤치마크의 형식에 맞게 결과를 출력하는 코드입니다.
+GPT2-E2ENLG-train.ipynb : 어댑터 EIDA를 적용하여 GPT2 모델을 E2E NLG Challenge 데이터셋으로 학습하고 https://github.com/tuetschek/e2e-dataset 에서 제공하는 벤치마크의 형식에 맞게 결과를 출력하는 코드입니다.
