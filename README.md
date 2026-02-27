@@ -36,7 +36,7 @@ The subspace dimension (rank) for each weight matrix is chosen based on empirica
 
 ### RoBERTa-base on GLUE SST-2
 
-Token samples were collected from 73 weight matrices (Q, K, V, O, fc1, fc2 across 12 encoder layers + the first classifier weight). Fine-tuning was performed for 4 epochs with lr=2e-4, weight decay=0.1, FP16, and a linear schedule (10% warmup).
+Token samples were collected from 73 weight matrices (Q, K, V, O, fc1, fc2 across 12 encoder layers + the first classifier weight).
 
 Average cosine similarity between input tokens and their projections onto the estimated subspace
 <p align="left">
@@ -62,6 +62,8 @@ Average cosine similarity between Δoutput tokens and their projections onto the
   <img src="./figure/256_delta_output_5.png" alt="right image" width="35%">
 </p>
 
+Fine-tuning was performed for 4 epochs with lr=2e-4, weight decay=0.1, FP16, and a linear schedule (10% warmup).
+
 Fine-tuning result
 | Model | Accuracy |
 |---|---|
@@ -71,7 +73,7 @@ Fine-tuning result
 
 ### GPT-2 on E2E NLG Challenge
 
-Token samples were collected from 72 weight matrices (Q, K, V, O, fc1, fc2 across 12 decoder blocks). Fine-tuning was performed for 16 epochs with lr=5e-5, weight decay=0.01, FP16, and a linear schedule (15% warmup). Generation used beam search with weight 10.
+Token samples were collected from 72 weight matrices (Q, K, V, O, fc1, fc2 across 12 decoder blocks).
 
 Average cosine similarity between input tokens and their projections onto the estimated subspace
 <p align="left">
@@ -96,6 +98,8 @@ Average cosine similarity between Δoutput tokens and their projections onto the
   <img src="./figure/128_delta_output_4.png" alt="left image" width="35%">
   <img src="./figure/128_delta_output_5.png" alt="right image" width="35%">
 </p>
+
+Fine-tuning was performed for 16 epochs with lr=5e-5, weight decay=0.01, FP16, and a linear schedule (15% warmup). Generation used beam search with weight 10.
 
 Fine-tuning result
 | Model | BLEU | NIST | MET | ROUGE-L | CIDEr |
